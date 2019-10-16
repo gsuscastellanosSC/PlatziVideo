@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWord from './components/HelloWorld';
+import App from './containers/App';
 
-ReactDOM.render(<HelloWord />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
