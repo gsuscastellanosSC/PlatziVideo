@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -9,46 +9,59 @@ import '../assets/styles/Media.scss';
 
 import '../assets/styles/App.scss';
 
-const App = () => (
-  <div className="App">
-    <Header />
-    <Search />
+const App = () => {
+  const [videos, setVideos] = useState([]);
 
-    <Categories title="Mi lista">
-      <Carousel>
-        <CarouserItem />
+  useEffect(() => {
+    fetch('http://localhost:3000/initalState')
+      .then((response) => response.json())
+      .then((data) => setVideos(data));
+  }, []);
 
-        <CarouserItem />
+  // eslint-disable-next-line no-console
+  console.log(videos);
 
-        <CarouserItem />
+  return (
+    <div className="App">
+      <Header />
+      <Search />
 
-        <CarouserItem />
+      <Categories title="Mi lista">
+        <Carousel>
+          <CarouserItem />
 
-      </Carousel>
-    </Categories>
+          <CarouserItem />
 
-    <Categories title="Tendencias">
-      <Carousel>
-        <CarouserItem />
+          <CarouserItem />
 
-        <CarouserItem />
+          <CarouserItem />
 
-        <CarouserItem />
+        </Carousel>
+      </Categories>
 
-      </Carousel>
-    </Categories>
+      <Categories title="Tendencias">
+        <Carousel>
+          <CarouserItem />
 
-    <Categories title="Originales de PlatziVideo">
-      <Carousel>
-        <CarouserItem />
+          <CarouserItem />
 
-        <CarouserItem />
+          <CarouserItem />
 
-      </Carousel>
-    </Categories>
+        </Carousel>
+      </Categories>
 
-    <Footer />
-  </div>
-);
+      <Categories title="Originales de PlatziVideo">
+        <Carousel>
+          <CarouserItem />
+
+          <CarouserItem />
+
+        </Carousel>
+      </Categories>
+
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
