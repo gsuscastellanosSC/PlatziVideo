@@ -5,8 +5,9 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouserItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
+import '../assets/styles/Media.scss';
 
-import '../assets/styles/components/App.scss';
+import '../assets/styles/App.scss';
 
 const App = () => (
   <div className="App">
