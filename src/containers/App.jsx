@@ -1,61 +1,43 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouserItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
+import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/Media.scss';
-
 import '../assets/styles/App.scss';
 
+const API = 'http://localhost:3000/initalState';
+
 const App = () => {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/initalState')
-      .then((response) => response.json())
-      .then((data) => setVideos(data));
-  }, []);
-
-  // eslint-disable-next-line no-console
-  console.log(videos);
-
+  const initialState = useInitialState(API);
   return (
+
     <div className="App">
       <Header />
       <Search />
-
+      {initialState.mylist.length > 0
+      && (
       <Categories title="Mi lista">
         <Carousel>
-          <CarouserItem />
-
-          <CarouserItem />
-
-          <CarouserItem />
-
-          <CarouserItem />
-
+          {initialState.trends.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
+      )}
+
 
       <Categories title="Tendencias">
         <Carousel>
-          <CarouserItem />
-
-          <CarouserItem />
-
-          <CarouserItem />
-
+          {initialState.trends.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
 
       <Categories title="Originales de PlatziVideo">
         <Carousel>
-          <CarouserItem />
-
-          <CarouserItem />
-
+          {initialState.originals.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
 
@@ -63,5 +45,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
