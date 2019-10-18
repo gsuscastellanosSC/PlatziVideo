@@ -11,7 +11,8 @@
     "builtin-modules": "^1.1.1",
     "lodash.cond": "^4.2.0",
     "lodash.find": "^4.2.0",
-    "pkg-up": "^1.0.0"
+    "pkg-up": "^1.0.0",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.4.0",

@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../assets/styles/components/CarouselItem.scss';
 import playIcon from '../assets/static/play-icon.png';
 import plusIcon from '../assets/static/plus-icon.png';
@@ -23,4 +24,13 @@ const CarouselItem = ({
     </div>
   </div>
 );
+
+CarouselItem.propTypes = {
+  cover: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.number,
+  contenRating: PropTypes.string,
+  duration: PropTypes.number,
+};
+
 export default CarouselItem;
