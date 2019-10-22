@@ -3,8 +3,10 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
-import '../assets/styles/components/Login.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/styles/components/Login.scss';
+
 import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
 
@@ -30,7 +32,11 @@ const Login = () => (
         <div>
           <img src={twitterIcon} alt="Twitter" />Inicia sesión con Twitter</div>
       </section>
-      <p className="login__container--register">No tienes ninguna cuenta <a href="./Registro.html">Regístrate</a> </p>
+      <p className="login__container--register">No tienes ninguna cuenta
+        <Link to="/Register">
+          Regístrate
+        </Link>
+      </p>
     </section>
   </section>
 );
