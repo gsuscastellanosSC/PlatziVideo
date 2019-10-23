@@ -10,15 +10,15 @@ import CarouserItem from '../components/CarouselItem';
 import '../assets/styles/Media.scss';
 import '../assets/styles/App.scss';
 
-const Home = ({ mylist, trends, originals }) => {
+const Home = ({ myList, trends, originals }) => {
   return (
     <>
       <Search />
-      {mylist.length > 0
+      {myList.length > 0
       && (
       <Categories title="Mi lista">
         <Carousel>
-          {trends.map((item) => <CarouserItem key={item.id} {...item} />)}
+          {myList.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
       )}
@@ -40,7 +40,7 @@ const Home = ({ mylist, trends, originals }) => {
 };
 
 const mapStateToProps = (state) => ({
-  mylist: state.mylist,
+  myList: state.myList,
   trends: state.trends,
   originals: state.originals,
 });

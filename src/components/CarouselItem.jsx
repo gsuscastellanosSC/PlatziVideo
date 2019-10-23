@@ -12,11 +12,11 @@ import plusIcon from '../assets/static/plus-icon.png';
 
 const CarouselItem = (props) => {
   const {
-    cover, title, year, contenRating, duration,
+    id, cover, title, year, contenRating, duration,
   } = props;
   const handleSetFavorite = () => {
     props.setFavorite({
-      ...props,
+      id, cover, title, year, contenRating, duration,
     });
   };
   return (
@@ -48,6 +48,7 @@ const CarouselItem = (props) => {
 };
 
 CarouselItem.propTypes = {
+  id: PropTypes.number,
   cover: PropTypes.string,
   title: PropTypes.string,
   year: PropTypes.number,
