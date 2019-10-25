@@ -11,6 +11,7 @@
     "builtin-modules": "^1.1.1",
     "lodash.cond": "^4.2.0",
     "lodash.find": "^4.2.0",
+    "md5": "^2.2.1",
     "pkg-up": "^1.0.0",
     "prop-types": "^15.7.2",
     "react-redux": "^7.1.1",
