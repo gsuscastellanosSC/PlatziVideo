@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { registerRequest } from '../actions';
 import '../assets/styles/components/Register.scss';
 
-const Register = () => {
+const Register = (props) => {
   const [form, setValues] = useState({
     mail: '',
     name: '',
@@ -17,16 +20,17 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const hadleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
+    props.registerRequest(form);
+    props.history.push('/');
   };
 
   return (
     <section className="register">
-      <section className="login__container">
+      <section className="register__container">
         <h2>Registrate</h2>
-        <form className="login__container--form" onSubmit={handleSubmit}>
+        <form className="register__container--form" onSubmit={hadleSubmit}>
           <input
             name="name"
             aria-label="Nombre"
@@ -36,7 +40,7 @@ const Register = () => {
             onChange={handleInput}
           />
           <input
-            name="mail"
+            name="email"
             aria-label="correo"
             className="input"
             type="text"
@@ -52,9 +56,9 @@ const Register = () => {
             onChange={handleInput}
           />
           <button className="button">Registrarme</button>
-          <div className="login__container--remember-me" />
+          <div className="register__container--remember-me" />
         </form>
-        <p className="login__container--register">
+        <p className="register__container--register">
           <Link to="/Login">
           Iniciar sesión
           </Link>
@@ -64,4 +68,9 @@ const Register = () => {
   );
 };
 
-export default Register;
+
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Register);
