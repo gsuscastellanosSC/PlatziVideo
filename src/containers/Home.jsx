@@ -7,18 +7,28 @@ import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouserItem from '../components/CarouselItem';
+import ButtonCategories from '../components/ButtonCategories';
 import '../assets/styles/Media.scss';
 import '../assets/styles/App.scss';
 
-const Home = ({ myList, trends, originals }) => {
+const Home = ({ MySites, trends, originals }) => {
   return (
     <>
       <Search isHome />
-      {myList.length > 0
+      <ButtonCategories title="Comida" />
+      <ButtonCategories title="Café" />
+      <ButtonCategories title="Nocturna" />
+      <ButtonCategories title="Diversión" />
+      <ButtonCategories title="Compras" />
+      <ButtonCategories title="Salud" />
+      <ButtonCategories title="Mascotas" />
+      <ButtonCategories title="Cine" />
+
+      {MySites.length > 0
       && (
       <Categories title="Sitios Favoritos">
         <Carousel>
-          {myList.map((item) => (
+          {MySites.map((item) => (
             <CarouserItem
               key={item.id}
               {...item}
@@ -30,13 +40,13 @@ const Home = ({ myList, trends, originals }) => {
       )}
 
 
-      <Categories title="Recomendados">
+      <Categories title="Lugares Recomensados">
         <Carousel>
           {trends.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
 
-      <Categories title="Colombia">
+      <Categories title="Lo mejor de Colombia">
         <Carousel>
           {originals.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
@@ -46,7 +56,7 @@ const Home = ({ myList, trends, originals }) => {
 };
 
 const mapStateToProps = (state) => ({
-  myList: state.myList,
+  MySites: state.MySites,
   trends: state.trends,
   originals: state.originals,
 });

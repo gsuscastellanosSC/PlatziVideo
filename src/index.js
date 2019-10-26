@@ -12,7 +12,7 @@ import App from './routes/App';
 const initialState = {
   "user": {},
   "playing": {},
-  "myList": [],
+  "MySites": [],
   "trends": [
       {
         "id": 2,
