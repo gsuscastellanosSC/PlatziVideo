@@ -15,15 +15,16 @@ const Home = ({ MySites, trends, originals }) => {
   return (
     <>
       <Search isHome />
-      <ButtonCategories title="Comida" />
-      <ButtonCategories title="Café" />
-      <ButtonCategories title="Nocturna" />
-      <ButtonCategories title="Diversión" />
-      <ButtonCategories title="Compras" />
-      <ButtonCategories title="Salud" />
-      <ButtonCategories title="Mascotas" />
-      <ButtonCategories title="Cine" />
-
+      <div className="button__c">
+        <ButtonCategories title="Comida" />
+        <ButtonCategories title="Café" />
+        <ButtonCategories title="Nocturna" />
+        <ButtonCategories title="Diversión" />
+        <ButtonCategories title="Compras" />
+        <ButtonCategories title="Salud" />
+        <ButtonCategories title="Mascotas" />
+        <ButtonCategories title="Cine" />
+      </div>
       {MySites.length > 0
       && (
       <Categories title="Sitios Favoritos">
@@ -40,7 +41,7 @@ const Home = ({ MySites, trends, originals }) => {
       )}
 
 
-      <Categories title="Lugares Recomensados">
+      <Categories title="Lugares Recomendados">
         <Carousel>
           {trends.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
