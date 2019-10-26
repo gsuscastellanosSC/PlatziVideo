@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import gravatar from '../utils/gravatar';
 import { logoutRequest } from '../actions';
 import '../assets/styles/components/Header.scss';
-import logo from '../assets/static/logo-platzi-video-BW2.png';
+import logo from '../assets/static/Logo.jpg';
 import userIcon from '../assets/static/user-icon.png';
 
 const Header = (props) => {
