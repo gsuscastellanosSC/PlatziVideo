@@ -1,7 +1,6 @@
 {
   "name": "movies-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,7 +27,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test",
       "...": "..."
     }
@@ -38,5 +37,6 @@
       "eslint --fix",
       "git add"
     ]
-  }
+  },
+  "description": ""
 }
