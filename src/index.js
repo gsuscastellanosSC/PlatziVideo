@@ -1,6 +1,186 @@
+/* eslint-disable indent */
+/* eslint-disable quote-props */
+/* eslint-disable quotes */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App';
+import { Provider } from 'react-redux';
+import { createStore, compose } from 'redux';
+import reducer from './reducers';
+import App from './routes/App';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const initialState = {
+  "user": {},
+  "playing": {},
+  "MySites": [],
+  "trends": [
+      {
+        "id": 2,
+        "slug": "tvshow-2",
+        "title": "In the Dark",
+        "type": "Scripted",
+        "language": "English",
+        "year": 2009,
+        "contentRating": "16+",
+        "duration": 164,
+        "cover": "http://rh-destinations.com/wp-content/uploads/2019/05/paisajes-de-costas-mexicanas-Royal-Holiday.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 3,
+        "slug": "tvshow-3",
+        "title": "Instinct",
+        "type": "Adventure",
+        "language": "English",
+        "year": 2002,
+        "contentRating": "16+",
+        "duration": 137,
+        "cover": "https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/newsletter/eiffel-tower-in-paris-151-medium.jpg?1564742900",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 4,
+        "slug": "tvshow-4",
+        "title": "Grand Hotel",
+        "type": "Comedy",
+        "language": "English",
+        "year": 2014,
+        "contentRating": "16+",
+        "duration": 163,
+        "cover": "https://www.growproexperience.com/wp-content/uploads/2018/06/Que-ver-en-Perth-10-Lugares-imprescindibles.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 5,
+        "slug": "tvshow-5",
+        "title": "Stargate Atlantis",
+        "type": "Scripted",
+        "language": "English",
+        "year": 2014,
+        "contentRating": "16+",
+        "duration": 194,
+        "cover": "http://rh-destinations.com/wp-content/uploads/2019/04/img1_nota2_abril.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 6,
+        "slug": "tvshow-6",
+        "title": "Final Space",
+        "type": "Scripted",
+        "language": "English",
+        "year": 2017,
+        "contentRating": "16+",
+        "duration": 124,
+        "cover": "https://lgfstatic.com/1045/conversions/0.95399000-1536731696JNA9iSjJoiZ9mkW7-large.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 7,
+        "slug": "tvshow-7",
+        "title": "The InBetween",
+        "type": "Drama",
+        "language": "English",
+        "year": 2011,
+        "contentRating": "16+",
+        "duration": 179,
+        "cover": "https://aseguratuviajefacil.com/wp-content/uploads/2019/03/ASEGURA-TU-VIAJE-FACIL-13-Lugares-turi%CC%81sticos-de-Japo%CC%81n.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+    ],
+    "originals": [
+      {
+        "id": 8,
+        "slug": "tvshow-8",
+        "title": "Stargate Atlantis",
+        "type": "Action",
+        "language": "English",
+        "year": 2012,
+        "contentRating": "16+",
+        "duration": 148,
+        "cover": "https://expotur-eco.com/wp-content/uploads/2018/03/ca%C3%B1o-cristales-rio-colombia-1.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 9,
+        "slug": "tvshow-9",
+        "title": "Alien Highway",
+        "type": "Action",
+        "language": "English",
+        "year": 2019,
+        "contentRating": "16+",
+        "duration": 128,
+        "cover": "http://kantutravel.cl/wp-content/uploads/2018/01/lo-mejor-de-colombia.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 10,
+        "slug": "tvshow-10",
+        "title": "Elementary",
+        "type": "Animation",
+        "language": "English",
+        "year": 2011,
+        "contentRating": "16+",
+        "duration": 346,
+        "cover": "https://cdn.colombia.com/sdi/2015/06/02/7d6b67d6454e428ab07fda822bdb5e65.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 11,
+        "slug": "tvshow-11",
+        "title": "Strange Angel",
+        "type": "War",
+        "language": "English",
+        "year": 2015,
+        "contentRating": "16+",
+        "duration": 226,
+        "cover": "https://panel.baquianos.com/img/blog/2019/23/-ad7x640.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 12,
+        "slug": "tvshow-12",
+        "title": "Private Eyes",
+        "type": "Comedy",
+        "language": "English",
+        "year": 2018,
+        "contentRating": "16+",
+        "duration": 190,
+        "cover": "https://enviajes.cl/wp-content/uploads/2013/09/Lugares-turisticos-Colombia-Cartagena.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4",
+      },
+      {
+        "id": 13,
+        "slug": "tvshow-13",
+        "title": "NCIS: Los Angeles",
+        "type": "Drama",
+        "language": "English",
+        "year": 2010,
+        "contentRating": "16+",
+        "duration": 160,
+        "cover": "https://www.colombia.co/wp-content/uploads/2015/09/Catedral-Zipaquir%C3%A1.jpg",
+        "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+        "source": "https://www.kienyke.com/wp-content/uploads/2018/05/avistamientos.jpeg",
+      },
+    ],
+};
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, initialState, composeEnhancers());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app'),
+);
