@@ -73,4 +73,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
     npm install md5;
     npm install -S react-router-dom;
     npm install --save redux react-redux;
-    npm run;
+    npm run start;
+    
+    npm install -g npm@latest;
+    rm -rf node_modules;
+    npm install;
+    sudo npm install -g react-scripts;
+    sudo npm install --save react react-dom react-scripts;
+    Link: https://stackoverrun.com/es/q/11006032
