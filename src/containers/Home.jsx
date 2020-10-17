@@ -7,29 +7,18 @@ import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouserItem from '../components/CarouselItem';
-import ButtonCategories from '../components/ButtonCategories';
 import '../assets/styles/Media.scss';
 import '../assets/styles/App.scss';
 
-const Home = ({ MySites, trends, originals }) => {
+const Home = ({ myList, trends, originals }) => {
   return (
     <>
       <Search isHome />
-      <div className="button__c">
-        <ButtonCategories title="Comida" />
-        <ButtonCategories title="Café" />
-        <ButtonCategories title="Nocturna" />
-        <ButtonCategories title="Diversión" />
-        <ButtonCategories title="Compras" />
-        <ButtonCategories title="Salud" />
-        <ButtonCategories title="Mascotas" />
-        <ButtonCategories title="Cine" />
-      </div>
-      {MySites.length > 0
+      {myList.length > 0
       && (
-      <Categories title="Sitios Favoritos">
+      <Categories title="Mi lista">
         <Carousel>
-          {MySites.map((item) => (
+          {myList.map((item) => (
             <CarouserItem
               key={item.id}
               {...item}
@@ -41,13 +30,13 @@ const Home = ({ MySites, trends, originals }) => {
       )}
 
 
-      <Categories title="Lugares Recomendados">
+      <Categories title="Tendencias">
         <Carousel>
           {trends.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
 
-      <Categories title="Lo mejor de Colombia">
+      <Categories title="Originales de PlatziVideo">
         <Carousel>
           {originals.map((item) => <CarouserItem key={item.id} {...item} />)}
         </Carousel>
@@ -57,7 +46,7 @@ const Home = ({ MySites, trends, originals }) => {
 };
 
 const mapStateToProps = (state) => ({
-  MySites: state.MySites,
+  myList: state.myList,
   trends: state.trends,
   originals: state.originals,
 });

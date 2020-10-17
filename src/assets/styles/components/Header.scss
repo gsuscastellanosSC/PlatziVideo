@@ -1,6 +1,6 @@
 .header {
     align-items: center;
-    background: rgba(4, 45, 99, 0.589);
+    background: #8f57fd;
     color: white;
     display: flex;
     height: 100px;
@@ -10,9 +10,8 @@
   }
   
   .header__img {
-    margin-left: 0px;
-    width: 115px;
-    object-fit: cover;
+    margin-left: 30px;
+    width: 200px;
   }
   
   .header__menu {
