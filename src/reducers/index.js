@@ -3,12 +3,12 @@ const reducer = (state, action) => {
     case 'SET_FAVORITE':
       return {
         ...state,
-        myList: [...state.myList, action.payload],
+        MySites: [...state.MySites, action.payload],
       };
     case 'DELETE_FAVORITE':
       return {
         ...state,
-        myList: state.myList.filter((items) => items.id !== action.payload),
+        MySites: state.MySites.filter((items) => items.id !== action.payload),
       };
     case 'LOGIN_REQUEST':
       return {

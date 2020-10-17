@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-console */
 /* eslint-disable react/no-unknown-property */
@@ -71,7 +72,7 @@ const Login = (props) => {
           <div>
             <img src={twitterIcon} alt="Twitter" />Inicia sesión con Twitter</div>
         </section>
-        <p className="login__container--register">No tienes ninguna cuenta {`  `}
+        <p className="login__container--register">No tienes ninguna cuenta   
           <Link to="/Register">
             Regístrate
           </Link>
