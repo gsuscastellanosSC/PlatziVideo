@@ -1,29 +1,29 @@
 {
   "name": "platzivideo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
+    "braces": "^3.0.2",
     "builtin-modules": "^1.1.1",
     "classnames": "^2.2.6",
     "lodash.cond": "^4.2.0",
     "lodash.find": "^4.2.0",
-    "md5": "^2.2.1",
+    "md5": "^2.3.0",
     "pkg-up": "^1.0.0",
     "prop-types": "^15.7.2",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4"
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
-    "@types/react-redux": "^7.1.5",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
-    "ava": "^0.13.0",
+    "ava": "^3.13.0",
     "babel-eslint": "^10.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^6.5.1",
@@ -38,35 +38,38 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.14.1",
+<<<<<<< HEAD
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+=======
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+>>>>>>> 6aef4cf5add098545644fbd230d21143f8452de5
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.2",
-    "xo": "^0.13.0"
+    "webpack-dev-server": "^3.11.0",
+    "xo": "^0.34.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gsuscastellanosSC/PlatziVideo.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "optionalDependencies": {
-    "lodash.isarray": "^4.0.0"
-  },
-  "peerDependencies": {
-    "react": ">=15.0.0 <16.0.0",
-    "react-dom": ">=15.0.0 <16.0.0"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gsuscastellanosSC/PlatziVideo/issues"
-  },
-  "homepage": "https://github.com/gsuscastellanosSC/PlatziVideo#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
